@@ -677,7 +677,8 @@ details p { color: var(--ok); font-weight: 700; }
 
 /* Ibu Bapa: everything left-aligned; mistake-type cards stacked top to bottom */
 .r-parents h2, .r-parents h2:has(+ .learn-list), .r-parents h2:has(+ .timeline), .r-parents h2:has(+ .avoid-panel) { text-align: left; }
-.r-parents .page-head { justify-items: start; text-align: left; }
+.r-parents .page-head { justify-items: center; text-align: center; }
+.r-parents .page-head .lead { margin-inline: auto; }
 .r-parents .learn-list li, .r-parents .timeline li { text-align: left; justify-items: start; }
 .r-parents .avoid { justify-items: stretch; text-align: left; }
 .r-parents .avoid li { justify-content: flex-start; }
@@ -991,7 +992,7 @@ details p { color: var(--ok); font-weight: 700; }
 .fix-good { background: var(--ok-bg); color: var(--ok); border-radius: var(--r-sm); padding: 12px 16px; font-weight: 700; }
 /* Header images: Ibu Bapa sits under the page title */
 .p-hero { margin-block: 4px 8px; }
-.p-hero .t-hero { width: min(100%, 760px); margin-inline: 0; }
+.p-hero .t-hero { width: min(100%, 760px); margin-inline: auto; }
 /* About: logo meaning and colours */
 .logo-key { list-style: none; margin: 0 0 8px; padding: 0; display: grid; gap: 10px; width: 100%; }
 .logo-key li { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 2px 12px; text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 10px 14px; }
@@ -15956,7 +15957,7 @@ Error generating stack: ` +
       ],
     });
   }
-  var qr = "";
+  var qr = { bm: "https://docs.google.com/forms/d/e/1FAIpQLSclHMyhgHro0kouaeC7VFm72QPdD7aOBORlL7sdPJU_rc04FA/viewform", en: "https://docs.google.com/forms/d/e/1FAIpQLSeQl2OAcAZ1Ne0OJAJFO4WGwFzbngLxQ5FW74W4ajQw76B60g/viewform" };
   function Vp({ logo: a }) {
     let { t: e, L: t } = ia();
     return (0, c.jsxs)(c.Fragment, {
@@ -15978,12 +15979,14 @@ Error generating stack: ` +
                   "Ia bukan bahan rasmi Kementerian Pendidikan Malaysia (KPM) dan tidak menggantikan buku teks atau guru.",
                   "Murid digalakkan belajar dengan bimbingan ibu bapa, penjaga atau guru.",
                   "Tiada log masuk. Hanya pilihan bahasa dan tema disimpan dalam pelayar kamu.",
+                  "Borang maklum balas ialah pautan luar (Google Forms) dan akan menyimpan jawapan yang kamu hantar.",
                 ],
                 en: [
                   "MASTEP+ is a supplementary learning resource for Year 4 SK pupils.",
                   "It is not official Ministry of Education Malaysia (KPM) material and does not replace textbooks or teachers.",
                   "Pupils should learn with support from a parent, guardian or teacher.",
                   "No login. Only your language and theme choices are saved in your browser.",
+                  "The feedback form is an external link (Google Forms) and stores the answers you send.",
                 ],
               }).map((n) => (0, c.jsx)("li", { children: n }, n)),
             }),
@@ -16097,17 +16100,18 @@ Error generating stack: ` +
             (0, c.jsx)("p", {
               className: "muted",
               children: t({
-                bm: "Sertakan: nama page, apa yang berlaku, dan peranti yang digunakan (telefon atau komputer).",
-                en: "Please include: the page name, what happened, and the device you used (phone or computer).",
+                bm: "Borang ringkas, kira-kira 2 minit. Jangan tulis nama atau maklumat peribadi murid.",
+                en: "A short form, about 2 minutes. Please do not write a pupil\u2019s name or personal information.",
               }),
             }),
-            qr &&
+            t(qr) &&
               (0, c.jsx)("a", {
                 className: "btn btn-primary",
-                href: qr,
-                target: qr.startsWith("mailto:") ? void 0 : "_blank",
+                href: t(qr),
+                target: "_blank",
                 rel: "noopener",
                 children: t({ bm: "Hantar maklum balas \u2192", en: "Send feedback \u2192" }),
+                "aria-label": t({ bm: "Hantar maklum balas (buka borang dalam tab baharu)", en: "Send feedback (opens the form in a new tab)" }),
               }),
           ],
         }),
