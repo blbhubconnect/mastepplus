@@ -1,0 +1,44 @@
+
+/* ================= v38: Rujukan Pantas jadi kad imbas (tekan untuk dedah) ================= */
+.kim-intro { display: grid; gap: 6px; }
+.kim-hint { color: var(--muted); font-size: 1rem; }
+.kim-card { gap: 12px; }
+.kim-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.kim-head h3 { padding-top: 10px; }
+.kim-all { font: inherit; font-size: .8rem; font-weight: 700; color: var(--link); background: var(--surface); border: 1.5px solid var(--line); border-radius: 999px; padding: 6px 14px; min-height: 44px; cursor: pointer; white-space: nowrap; flex: none; }
+.kim-all:hover, .kim-all[aria-pressed="true"] { border-color: var(--link); }
+.kim-ctx { font-size: .95rem; }
+.kim-num { font-size: 1.35rem; letter-spacing: .03em; font-variant-numeric: tabular-nums; }
+.kim-grid { display: grid; gap: 8px; }
+.kim-grid.g1 { grid-template-columns: 1fr; }
+.kim-grid.g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.kim-grid.g5 { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+@media (max-width: 400px) { .kim-grid.g5 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.kim-count { font-size: .8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.kim-flip { display: grid; perspective: 900px; border: 0; padding: 0; margin: 0; background: none; font: inherit; color: var(--ink); text-align: left; cursor: pointer; min-height: 76px; min-width: 0; border-radius: 14px; }
+.kim-face { grid-area: 1 / 1; position: relative; display: grid; gap: 4px; align-content: center; min-width: 0; padding: 12px 14px; border-radius: 14px; background: var(--surface); backface-visibility: hidden; -webkit-backface-visibility: hidden; transition: transform .45s cubic-bezier(.2, .7, .2, 1); }
+.kim-front { border: 2px dashed var(--line); }
+.kim-front::after { content: "?"; position: absolute; top: 6px; right: 8px; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-size: .75rem; font-weight: 700; color: var(--link); background: var(--soft); }
+.kim-back { transform: rotateY(180deg); border: 2px solid var(--ok); background: var(--ok-bg); }
+.kim-flip.is-open .kim-front { transform: rotateY(-180deg); }
+.kim-flip.is-open .kim-back { transform: rotateY(0deg); }
+.kim-flip:hover .kim-front { border-color: var(--link); }
+.kim-word { font-weight: 700; font-size: 1.05rem; line-height: 1.25; overflow-wrap: anywhere; }
+.kim-sub { font-size: .8rem; color: var(--muted); }
+.kim-back .kim-sub { color: var(--ink); opacity: .85; }
+.kim-row { display: flex; align-items: center; gap: 8px; }
+.kim-row .skop-k { width: 28px; height: 28px; font-size: .9rem; }
+.kim-kw { color: var(--link); }
+.kim-def { font-size: .95rem; }
+/* SKOP: jalur warna ikut S/K/O/P */
+.kim-skop .kim-face { border-top: 5px solid var(--c); }
+/* Nilai tempat: kepala berwarna kekal di kedua-dua muka */
+.kim-pv { min-height: 92px; }
+.kim-pv .kim-face { padding: 0 0 8px; justify-items: stretch; text-align: center; align-content: start; overflow: hidden; }
+.kim-pv .pvb-h { border-radius: 10px 10px 0 0; min-height: 36px; font-size: .68rem; padding: 4px 2px; }
+.kim-pv .kim-front::after { top: auto; bottom: 4px; right: 4px; width: 18px; height: 18px; font-size: .65rem; }
+.kim-digit { font-size: 1.5rem; font-weight: 700; padding-top: 6px; }
+.kim-val { font-size: .9rem; font-weight: 700; padding-top: 10px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+@media (max-width: 400px) { .kim-pv .pvb-h { font-size: .62rem; } }
+@media (prefers-reduced-motion: reduce) { .kim-face { transition: none; } }
